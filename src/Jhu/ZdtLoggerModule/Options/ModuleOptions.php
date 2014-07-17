@@ -24,6 +24,20 @@ class ModuleOptions extends AbstractOptions
      * @var string|\Zend\Log\Logger
      */
     protected $logger = 'Zend\Log\Logger';
+    
+    /**
+     * The logger level to filter the writer.
+     * 
+     * @var integer
+     */
+    protected $level;
+    
+    /**
+     * The logger filter comparator for the writer.
+     * 
+     * @var string
+     */
+    protected $levelComparator;
 
     /**
      * Set logger
@@ -46,5 +60,51 @@ class ModuleOptions extends AbstractOptions
     public function getLogger()
     {
         return $this->logger;
+    }
+    
+    /**
+     * Set level
+     * 
+     * @param integer $level
+     * @return ModuleOptions
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+        
+        return $this;
+    }
+    
+    /**
+     * Get level
+     * 
+     * @return integer
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+    
+    /**
+     * Set levelComparator
+     * 
+     * @param string $levelComparator
+     * @return ModuleOptions
+     */
+    public function setLevelComparator($levelComparator)
+    {
+        $this->levelComparator = $levelComparator;
+        
+        return $this;
+    }
+    
+    /**
+     * Get levelComparator
+     * 
+     * @return string
+     */
+    public function getLevelComparator()
+    {
+        return $this->levelComparator;
     }
 }

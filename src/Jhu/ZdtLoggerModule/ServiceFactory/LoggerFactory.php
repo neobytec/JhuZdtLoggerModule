@@ -36,6 +36,12 @@ class LoggerFactory implements FactoryInterface
 
         /* @var $writer \Jhu\ZdtLogger\Writer\Zdt */
         $writer = $serviceLocator->get('Jhu\ZdtLoggerModule\Writer');
+        
+        $level = $options->getLevel();
+        if ($level != null) {
+            $levelComparator = $options->getLevelComparator() ?: '=';
+            $writer->addFilter(new \Zend\Log\Filter\Priority($level, $levelComparator));
+        }
 
         $logger->addWriter($writer);
 
