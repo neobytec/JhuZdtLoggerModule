@@ -21,6 +21,8 @@ Configuration options are available in [`config/jhu-zdt-logger.global.php.dist`]
 Options available :
 
 * `logger` : This module will by default create a `Zend\Log\Logger` and add a writer to it. If you already have a logger in your application, you can set it here so it will be used instead of creating a new one. The logger you'll set here has to be available thru the service manager.
+* `level`  : This option allow you to filter a priority for the Writer, so you can log only the messages with a specific priority like Debug and ignore the others or viceversa.
+* `levelComparator` : Allow you to specify a comparator operation between the priorities, so only add or exclude the ones that you want. The default value is equal '='.
 
 Usage
 ===
